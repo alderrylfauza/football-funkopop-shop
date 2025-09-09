@@ -1,8 +1,23 @@
-<h1>Football News</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ app_name }}</title>
+</head>
+<body>
+    <h1>{{ app_name }}</h1>
+    <p>Kelas: {{ class_name }}</p>
 
-<h5>NPM: </h5>
-<p>{{ npm }}</p>
-<h5>Name: </h5>
-<p>{{ name }}<p>
-<h5>Class: </h5>
-<p>{{ class }}</p>
+    <h2>Daftar FunkoPop</h2>
+    <ul>
+        {% for product in products %}
+        <li>
+            <img src="{{ product.thumbnail }}" width="100"><br>
+            <b>{{ product.name }}</b><br>
+            Harga: Rp{{ product.price }}<br>
+            Deskripsi: {{ product.description }}<br>
+            Stock: {{ product.stock }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
