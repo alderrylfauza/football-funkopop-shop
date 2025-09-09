@@ -9,6 +9,7 @@ class Product(models.Model):
     description = models.TextField()         # deskripsi item
     thumbnail = models.URLField()            # link gambar FunkoPop
     category = models.CharField(max_length=50)  # kategori (contoh: "Football Player")
+    stock = models.PositiveIntegerField(default=0) # contoh stok
     is_featured = models.BooleanField(default=False)  # produk unggulan
 
     def __str__(self):

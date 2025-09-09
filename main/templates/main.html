@@ -15,8 +15,15 @@
             <b>{{ product.name }}</b><br>
             Harga: Rp{{ product.price }}<br>
             Deskripsi: {{ product.description }}<br>
-            Stock: {{ product.stock }}
+            Kategori: {{ product.category }}<br>
+            Stock: {{ product.stock }}<br>
+            {% if product.is_featured %}
+                <span style="color: gold; font-weight: bold;">⭐ Featured</span>
+            {% else %}
+                <span style="color: gray;">Not Featured</span>
+            {% endif %}
         </li>
+        <hr>
         {% endfor %}
     </ul>
 </body>

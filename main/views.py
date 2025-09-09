@@ -2,11 +2,18 @@ from django.shortcuts import render
 from .models import Product
 from django.http import HttpResponse
 
-def index(request):
-    return HttpResponse("Welcome to Football FunkoPop Shop!")
-
 def show_main(request):
-    products = Product.objects.all()  # ambil semua produk dari database
+    Product.objects.create(
+        name="Cristiano Ronaldo FunkoPop",
+        price=500000,
+        description="Limited edition FunkoPop of CR7 in Portugal kit",
+        thumbnail="https://example.com/cr7.jpg",
+        category="Football Player",
+        stock=10,
+        is_featured=True
+    )
+
+    products = Product.objects.all()
     context = {
         "app_name": "Football FunkoPop Shop",
         "class_name": "PBP A",
