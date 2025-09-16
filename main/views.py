@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .models import Product
-from django.http import HttpResponse
 
 def show_main(request):
     Product.objects.create(
@@ -16,7 +15,7 @@ def show_main(request):
     products = Product.objects.all()
     context = {
         "app_name": "Football FunkoPop Shop",
-        "class_name": "PBP A",
+        "class_name": "PBP D",
         "products": products,
     }
     return render(request, "main.html", context)

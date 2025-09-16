@@ -1,30 +1,25 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>{{ app_name }}</title>
+  <meta charset="utf-8">
+  <title>{{ app_name }}</title>
 </head>
 <body>
-    <h1>{{ app_name }}</h1>
-    <p>Kelas: {{ class_name }}</p>
+  <h1>{{ app_name }}</h1>
+  <h3>Class: {{ class_name }}</h3>
 
-    <h2>Daftar FunkoPop</h2>
-    <ul>
-        {% for product in products %}
-        <li>
-            <img src="{{ product.thumbnail }}" width="100"><br>
-            <b>{{ product.name }}</b><br>
-            Harga: Rp{{ product.price }}<br>
-            Deskripsi: {{ product.description }}<br>
-            Kategori: {{ product.category }}<br>
-            Stock: {{ product.stock }}<br>
-            {% if product.is_featured %}
-                <span style="color: gold; font-weight: bold;">⭐ Featured</span>
-            {% else %}
-                <span style="color: gray;">Not Featured</span>
-            {% endif %}
-        </li>
-        <hr>
-        {% endfor %}
-    </ul>
+  <h2>Products</h2>
+  {% for product in products %}
+    <h4>{{ product.name }}</h4>
+    <p>Price: {{ product.price }}</p>
+    <p>Description: {{ product.description }}</p>
+    <p>Thumbnail: <a href="{{ product.thumbnail }}">{{ product.thumbnail }}</a></p>
+    <p>Category: {{ product.category }}</p>
+    <p>Stock: {{ product.stock }}</p>
+    <p>Featured: {{ product.is_featured }}</p>
+    <hr>
+  {% empty %}
+    <p>No products available.</p>
+  {% endfor %}
 </body>
 </html>
